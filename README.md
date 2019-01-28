@@ -3,10 +3,11 @@
 couple of scripts to run basic operations on Infoblox Grid using wapi
 (there might be an easier way to write them :)
 
-If you want to check your wapi version on your Grid Master
-(https://<GM>/wapidoc/)
+If you want to check your wapi version on your Grid Master:
+(https://FQDN.of.your.GM/wapidoc/)
 
 
 requirements: 
-[jq] (https://github.com/stedolan/jq/releases/download/)
+
+- [jq](https://github.com/stedolan/jq/releases/download/)
 
