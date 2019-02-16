@@ -9,10 +9,9 @@ HOSTREF=$(curl -k1 -u $UP \
 -X GET https://$GM/wapi/$WAPIVS/record:host \
 -d name=$FQDN \
 |
-jq '.[0] | {ref: ._ref}' | awk {'print $2'})
-
-# remove cr and " " 
-HOSTREF=$(echo $HOSTREF | tr -d '\r' | tr -d '"')
+jq '.[0]."_ref"' \
+|
+tr -d '"')
 
 HOSTURL="https://$GM/wapi/$WAPIVS/$HOSTREF"
 
