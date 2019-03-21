@@ -5,13 +5,12 @@ GM="gm.lab"
 
 FQDN=$1
 
-HOSTREF=$(curl -k1 -u $UP \
+HOSTREF=$(curl -k1 -s -u $UP \
 -X GET https://$GM/wapi/$WAPIVS/record:host \
 -d name=$FQDN \
 |
-jq '.[0]."_ref"' \
-|
-tr -d '"')
+jq -r '.[0]."_ref"')  
+# -r produces raw output without quotes
 
 HOSTURL="https://$GM/wapi/$WAPIVS/$HOSTREF"
 
